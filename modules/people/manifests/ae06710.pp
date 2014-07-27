@@ -53,7 +53,7 @@ class people::ae06710 {
       'tmux',                       # terminal session
       'reattach-to-user-namespace', # use tmux to clipbord
       'tig',                        # git cui client
-      'git-extras',                 # git command extend
+      # 'git-extras',                 # git command extend
       'graphviz',                   # graph generator (use for rails-erd)
       'ffmpeg',
       'mysql',
