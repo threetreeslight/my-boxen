@@ -46,6 +46,7 @@ class people::ae06710 {
       'pstree',                     # like linux ps -f option cmd
       'tree',                       # linux tree cmd
       'z',                          # shortcut change dir
+      'zsh-completions',            # shortcut change dir
       'the_silver_searcher',        # alternative grep
       'proctools',                  # kill by process name. like $ pkill firefox
       'ctags',                      # vim compel
@@ -53,25 +54,26 @@ class people::ae06710 {
       'tmux',                       # terminal session
       'reattach-to-user-namespace', # use tmux to clipbord
       'tig',                        # git cui client
-      # 'git-extras',                 # git command extend
       'graphviz',                   # graph generator (use for rails-erd)
       'ffmpeg',
       'mysql',
       'packer'                      # vagrant box maker
-      # 'ghc',
-      # 'haskell-platform'
     ]:
   }
 
   include java
   python::version { '2.7.6': }
   $python_version = '2.7.6'
-  python::package { "virtualenv for ${version}":
+  python::package { "virtualenv for ${python_version}":
     package => 'virtualenv',
     python  => $python_version,
   }
-  python::package { 'virtualenvwrapper ${version}':
+  python::package { "virtualenvwrapper ${python_version}":
     package => 'virtualenvwrapper',
+    python  => $python_version,
+  }
+  python::package { "percol for ${python_version}":
+    package => 'percol',
     python  => $python_version,
   }
   class { 'python::global': version => '2.7.6' }
