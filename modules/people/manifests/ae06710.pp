@@ -191,10 +191,6 @@ class people::ae06710 {
   #   source   => 'https://s3.amazonaws.com/sqwiggle-releases/mac/sqwiggle-0.4.8.dmg',
   #   provider => 'appdmg'
   # }
-  package { 'Growl':
-    source   => 'http://growl.googlecode.com/files/Growl-1.2.2.dmg',
-    provider => 'pkgdmg'
-  }
 
   include google_japanese_input
   include dropbox
