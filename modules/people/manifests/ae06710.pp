@@ -49,6 +49,7 @@ class people::ae06710 {
       'zsh-completions',            # shortcut change dir
       'the_silver_searcher',        # alternative grep
       'proctools',                  # kill by process name. like $ pkill firefox
+      'jq',                         # json perser pipeline
       'ctags',                      # vim compel
       'putty',                      # use convert ppk key to OpenSSH format
       'tmux',                       # terminal session
@@ -74,6 +75,10 @@ class people::ae06710 {
   }
   python::package { "percol for ${python_version}":
     package => 'percol',
+    python  => $python_version,
+  }
+  python::package { "stellar for ${python_version}":
+    package => 'stellar',
     python  => $python_version,
   }
   class { 'python::global': version => '2.7.6' }
