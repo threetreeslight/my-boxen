@@ -47,6 +47,7 @@ class people::ae06710 {
       'tree',                       # linux tree cmd
       'z',                          # shortcut change dir
       'zsh-completions',            # shortcut change dir
+      'vim',                        # mac preinstalled vim is old X(
       'the_silver_searcher',        # alternative grep
       'proctools',                  # kill by process name. like $ pkill firefox
       'jq',                         # json perser pipeline
@@ -81,6 +82,10 @@ class people::ae06710 {
     package => 'stellar',
     python  => $python_version,
   }
+  python::package { "awscli for ${python_version}":
+    package => 'awscli',
+    python  => $python_version,
+  }
   class { 'python::global': version => '2.7.6' }
   # include php::5_4_17
   # include php::composer
@@ -106,18 +111,18 @@ class people::ae06710 {
   include heroku
 
   # ruby
-  ruby_gem { 'git-issue for all ruby versions':
-    gem          => 'git-issue',
-    ruby_version => '*'
-  }
-  ruby_gem { 'chef for all ruby versions':
-    gem          => 'chef',
-    ruby_version => '*'
-  }
-  ruby_gem { 'knife-solo for all ruby versions':
-    gem          => 'knife-solo',
-    ruby_version => '*'
-  }
+  # ruby_gem { 'git-issue for all ruby versions':
+  #   gem          => 'git-issue',
+  #   ruby_version => '*'
+  # }
+  # ruby_gem { 'chef for all ruby versions':
+  #   gem          => 'chef',
+  #   ruby_version => '*'
+  # }
+  # ruby_gem { 'knife-solo for all ruby versions':
+  #   gem          => 'knife-solo',
+  #   ruby_version => '*'
+  # }
   ruby_gem { 'rubocop for all ruby versions':
     gem          => 'rubocop',
     ruby_version => '*'
@@ -212,6 +217,11 @@ class people::ae06710 {
   include vlc
   include flux
   include cinch
+
+  # rbenv plugins
+  repository { '/opt/boxen/rbenv/plugins/gem-src':
+    source  => 'amatsuda/gem-src'
+  }
 
   #
   # dotfile setting

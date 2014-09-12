@@ -55,7 +55,7 @@ github "repository",  "2.3.0"
 github "ruby",        "8.1.2"
 github "stdlib",      "4.2.1", :repo => "puppetlabs/puppetlabs-stdlib"
 github "sudo",        "1.0.0"
-github "xquartz",     "1.1.1"
+github "xquartz",     "1.2.0"
 
 # Optional/custom modules. There are tons available at
 # https://github.com/boxen.
@@ -66,7 +66,7 @@ github "property_list_key", "0.2.1", :repo => "glarizza/puppet-property_list_key
 
 # lib
 github "wget",           "1.0.1"
-github "java",           "1.5.0"
+github "java",           "1.7.0"
 github "python",         "2.0.1", :repo => "mloberg/puppet-python" # Mange Python with Boxen and pyenv
 github "libtool",        "1.0.0" # use for php
 github "pcre",           "1.0.0" # use for php
@@ -80,7 +80,6 @@ github "heroku",         "2.0.0"
 github "postgresql",     "3.0.0"
 github "sysctl",         "1.0.1" # use for postgresql
 github "redis",          "3.0.2"
-# github "pow",            "1.0.0"
 
 
 # local application for develop
