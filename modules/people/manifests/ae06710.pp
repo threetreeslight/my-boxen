@@ -56,6 +56,7 @@ class people::ae06710 {
       'tmux',                       # terminal session
       'reattach-to-user-namespace', # use tmux to clipbord
       'tig',                        # git cui client
+      'sshrc',                      # directive ssh setting
       'graphviz',                   # graph generator (use for rails-erd)
       'ffmpeg',
       'mysql',
