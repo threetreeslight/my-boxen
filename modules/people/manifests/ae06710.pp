@@ -5,11 +5,9 @@ class people::ae06710 {
   #
   # general
   include osx::global::tap_to_click
-
   # Finder
   include osx::finder::unhide_library
   include osx::finder::show_hidden_files
-
   # Dock
   include osx::dock::2d
   include osx::dock::autohide
@@ -24,11 +22,9 @@ class people::ae06710 {
     }
   }
   include osx::dock::kill_dashbord
-
   # Universal Access
   include osx::universal_access::ctrl_mod_zoom
   include osx::universal_access::enable_scrollwheel_zoom
-
   # Miscellaneous
   include osx::no_network_dsstores # disable creation of .DS_Store files on network shares
   include osx::software_update # download and install software updates
@@ -42,8 +38,12 @@ class people::ae06710 {
     [
       # readline install by mloberg/puppet-python
       # 'readline',                   # use for ruby compile
+      'pcre',                       # perl regular expression ( need compile php )
+      'libpng',                     # png lib ( need compile php )
       'coreutils',                  # change mac command to like GNU Linux
       'pstree',                     # like linux ps -f option cmd
+      'wget',                       #
+      'qt',                         # UI toolkit ( need capibara-webkit )
       'tree',                       # linux tree cmd
       'z',                          # shortcut change dir
       'zsh-completions',            # shortcut change dir
@@ -58,6 +58,7 @@ class people::ae06710 {
       'reattach-to-user-namespace', # use tmux to clipbord
       'tig',                        # git cui client
       'sshrc',                      # directive ssh setting
+      'imagemagick',                # convert, Edit, And Compose Images
       'graphviz',                   # graph generator (use for rails-erd)
       'ffmpeg',
       'mysql',
@@ -106,15 +107,9 @@ class people::ae06710 {
   # }
   include postgresql
   include redis
-  include wget
   include zsh
-  include imagemagick
   phantomjs::version { '1.9.2': }
   include heroku
-
-  # # rbenv plugins
-  # repository { '/opt/boxen/rbenv/plugins/gem-src':
-  #   source  => 'amatsuda/gem-src'
 
   # ruby
   # ruby_gem { 'git-issue for all ruby versions':
@@ -133,20 +128,33 @@ class people::ae06710 {
     gem          => 'rubocop',
     ruby_version => '*'
   }
-
-
+  # # rbenv plugins
+  # repository { '/opt/boxen/rbenv/plugins/gem-src':
+  #   source  => 'amatsuda/gem-src'
 
   #
-  # local application for develop
+  # Client application
   #
-  include sequel_pro
+  # terminal
+  package { 'iTerm':
+    source   => "http://www.iterm2.com/downloads/beta/iTerm2-1_0_0_20140629.zip",
+    provider => 'compressed_app'
+  }
+
+  # DB
+  $sequel_version='1.0.2'
+  package { "Sequel-Pro-${sequel_version}":
+    provider => 'appdmg',
+    source   => "http://sequel-pro.googlecode.com/files/sequel-pro-${sequel_version}.dmg",
+  }
+
+  # vm
   include virtualbox
   include vagrant
   vagrant::plugin { 'vagrant-aws': }
   vagrant::plugin { 'vagrant-digitalocean': }
   vagrant::plugin { 'vagrant-omnibus': }
   vagrant::plugin { 'vagrant-vbox-snapshot': }
-  include iterm2::stable
 
   # Editor
   include sublime_text_2
@@ -171,13 +179,28 @@ class people::ae06710 {
     source   => 'http://kapeli.com/Dash.zip',
     provider => 'compressed_app'
   }
+  package { 'evernote':
+    provider => 'appdmg_eula',
+    source   => 'http://cdn1.evernote.com/mac/release/Evernote_402634.dmg'
+  }
 
   # Uploader
-  include cyberduck
+  package { 'Cyberduck':
+    provider   => 'compressed_app',
+    source     => 'http://cyberduck.ch/Cyberduck-4.5.2.zip'
+  }
   # package { 'filezilla':
   #   provider => 'compressed_app',
   #   source => 'http://downloads.sourceforge.net/project/filezilla/FileZilla_Client/3.7.3/FileZilla_3.7.3_i686-apple-darwin9.app.tar.bz2',
   # }
+
+  # Storage
+  package { 'Dropbox':
+    provider => 'appdmg',
+    source   => "https://d1ilhw0800yew8.cloudfront.net/client/Dropbox%202.10.28.dmg",
+  }
+
+  # iOS dev utility
   package { 'testflight':
       provider => "compressed_app",
       source   => "https://d193ln56du8muy.cloudfront.net/desktop_app/1381509820/TestFlight-Desktop-1.0-Beta(313).zip",
@@ -186,16 +209,24 @@ class people::ae06710 {
     source   => 'http://simpholders.com/site/assets/files/1098/sp20a-87.zip',
     provider => 'compressed_app',
   }
-  include firefox
-  include chrome
 
-  #
-  # local application for utility
-  #
+  # Browser
+  package { 'Chrome':
+      provider => 'appdmg',
+      source   => 'https://dl.google.com/chrome/mac/stable/GoogleChrome.dmg',
+  }
+  package { 'Firefox':
+    source   => "http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/${version}/mac/en-US/Firefox%2032.0.dmg",
+    provider => 'appdmg'
+  }
+
+  # virus
   package { 'ClamXav':
     source   => "http://www.clamxav.com/downloads/ClamXav_2.6.1.dmg",
     provider => appdmg;
   }
+
+  # Utility
   package { 'Language Switcher':
     provider => "appdmg",
     source   => "http://www.tj-hd.co.uk/downloads/Language_Switcher_1_1_7.dmg",
@@ -203,10 +234,6 @@ class people::ae06710 {
   package { 'macam':
     provider => "appdmg",
     source   => "http://downloads.sourceforge.net/project/webcam-osx/macam/0.9.2/macam.0.9.2.dmg",
-  }
-  package { 'Sqwiggle':
-    source   => 'https://s3.amazonaws.com/sqwiggle-releases/mac/sqwiggle-0.6.3.dmg',
-    provider => 'appdmg'
   }
   package { 'DiskWave':
     source   => 'http://diskwave.barthe.ph/download/DiskWave_0.4.dmg',
@@ -216,15 +243,45 @@ class people::ae06710 {
     source   => 'http://knock-updates.s3.amazonaws.com/Knock.zip',
     provider => 'compressed_app'
   }
-  include google_japanese_input
-  include dropbox
-  include skype
-  include hipchat
-  include alfred
-  include evernote
-  include vlc
-  include flux
-  include cinch
+  package { 'google_japanese_input':
+    source   => 'http://dl.google.com/dl/japanese-ime/1.8.1310.1/googlejapaneseinput.dmg',
+    provider => 'pkgdmg'
+  }
+  package { 'Alfred 2':
+    provider => 'compressed_app',
+    source   => "http://cachefly.alfredapp.com/Alfred_2.4_279.zip"
+  }
+  package { 'Flux':
+    source => 'https://justgetflux.com/mac/fluxbeta.zip',
+    provider => 'compressed_app'
+  }
+  package { 'Cinch':
+    source   => 'http://www.irradiatedsoftware.com/download/Cinch.zip',
+    provider => 'compressed_app'
+  }
+  package { 'VLC':
+    provider => 'appdmg',
+    source   => "http://artfiles.org/videolan.org/vlc/${version}/macosx/vlc-2.1.4.dmg",
+  }
+  package { 'Gifzo':
+    provider => 'compressed_app',
+    source   => 'http://gifzo.net/Gifzo.zip',
+  }
+
+  # Communication
+  package { 'Sqwiggle':
+    source   => 'https://s3.amazonaws.com/sqwiggle-releases/mac/sqwiggle-0.6.3.dmg',
+    provider => 'appdmg'
+  }
+  package { 'Skype':
+    provider => 'appdmg',
+    source   => 'http://download.skype.com/macosx/Skype_6.19.0.442.dmg',
+  }
+  package { 'HipChat':
+    provider => 'compressed_app',
+    source   => 'https://www.hipchat.com/downloads/latest/mac',
+    flavor   => 'zip',
+  }
 
   # #
   # # dotfile setting

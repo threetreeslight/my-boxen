@@ -65,43 +65,19 @@ github "osx",               "2.7.0"
 github "property_list_key", "0.2.1", :repo => "glarizza/puppet-property_list_key"
 
 # lib
-github "wget",           "1.0.1"
 github "java",           "1.7.0"
 github "python",         "2.0.1", :repo => "mloberg/puppet-python" # Mange Python with Boxen and pyenv
 github "libtool",        "1.0.0" # use for php
-github "pcre",           "1.0.0" # use for php
-github "libpng",         "1.0.0" # use for php
 github "php",            "1.2.4"
-github "imagemagick",    "1.3.0"
 github "vagrant",        "3.1.1"
-github "qt",             "1.3.1" # use for capybara-webkit
 github "zsh",            "1.0.0"
 github "heroku",         "2.0.0"
 github "postgresql",     "3.0.0"
 github "sysctl",         "1.0.1" # use for postgresql
 github "redis",          "3.0.2"
 
-
-# local application for develop
-github "sequel_pro",     "1.0.1"
-github "iterm2",         "1.0.4"
+# client application
 github "virtualbox",     "1.0.10"
 github "sublime_text_2", "1.1.2"
-github "chrome",         "1.1.2"
-github "firefox",        "1.1.8"
-# github "tunnelblick",    "1.0.4"
-github "cyberduck",      "1.0.1"
-
-# local application for utility
-github "google_japanese_input", "1.0.0", :repo => "ngs/puppet-google_japanese_input"
-github "dropbox",               "1.2.0"
-github "skype",                 "1.0.8"
-github "hipchat",               "1.1.0"
-github "alfred",                "1.1.7"
-github "mou",                   "1.1.3"
-github "evernote",              "2.0.4"
-github "vlc",                   "1.0.5"
-github "flux",                  "1.0.0"
-github "cinch",                 "1.0.1"
-# github "steam",                 "1.0.1"
+# github "mou",                   "1.1.3"
 
