@@ -47,6 +47,7 @@ class people::ae06710 {
       'tree',                       # linux tree cmd
       'z',                          # shortcut change dir
       'zsh-completions',            # shortcut change dir
+      'resty',                      # curl wrapper cli
       'vim',                        # mac preinstalled vim is old X(
       'the_silver_searcher',        # alternative grep
       'proctools',                  # kill by process name. like $ pkill firefox
@@ -111,6 +112,10 @@ class people::ae06710 {
   phantomjs::version { '1.9.2': }
   include heroku
 
+  # # rbenv plugins
+  # repository { '/opt/boxen/rbenv/plugins/gem-src':
+  #   source  => 'amatsuda/gem-src'
+
   # ruby
   # ruby_gem { 'git-issue for all ruby versions':
   #   gem          => 'git-issue',
@@ -130,6 +135,7 @@ class people::ae06710 {
   }
 
 
+
   #
   # local application for develop
   #
@@ -141,6 +147,8 @@ class people::ae06710 {
   vagrant::plugin { 'vagrant-omnibus': }
   vagrant::plugin { 'vagrant-vbox-snapshot': }
   include iterm2::stable
+
+  # Editor
   include sublime_text_2
   sublime_text_2::package { 'Emmet': source => 'sergeche/emmet-sublime' }
   sublime_text_2::package { 'GitGutter': source => 'jisaacks/GitGutter' }
@@ -151,20 +159,35 @@ class people::ae06710 {
   sublime_text_2::package { 'SublimeLinter-json': source => 'SublimeLinter/SublimeLinter-json' }
   sublime_text_2::package { 'SublimeLinter-jshint': source => 'SublimeLinter/SublimeLinter-jshint' }
   sublime_text_2::package { 'SublimeLinter-coffeelint': source => 'SublimeLinter/SublimeLinter-coffeelint' }
-  # include tunnelblick
+  package { 'HexFiend':
+    source   => "http://ridiculousfish.com/hexfiend/files/HexFiend.zip",
+    provider => "compressed_app",
+  }
+  package { 'MacOView':
+    source   => 'http://downloads.sourceforge.net/project/machoview/MachOView-2.4.9000.dmg',
+    provider => 'appdmg'
+  }
+  package { 'Dash':
+    source   => 'http://kapeli.com/Dash.zip',
+    provider => 'compressed_app'
+  }
+
+  # Uploader
   include cyberduck
   # package { 'filezilla':
   #   provider => 'compressed_app',
   #   source => 'http://downloads.sourceforge.net/project/filezilla/FileZilla_Client/3.7.3/FileZilla_3.7.3_i686-apple-darwin9.app.tar.bz2',
   # }
-  include firefox
-  include chrome
   package { 'testflight':
       provider => "compressed_app",
       source   => "https://d193ln56du8muy.cloudfront.net/desktop_app/1381509820/TestFlight-Desktop-1.0-Beta(313).zip",
   }
-
-
+  package { 'SimPholders2':
+    source   => 'http://simpholders.com/site/assets/files/1098/sp20a-87.zip',
+    provider => 'compressed_app',
+  }
+  include firefox
+  include chrome
 
   #
   # local application for utility
@@ -180,71 +203,50 @@ class people::ae06710 {
   package { 'macam':
     provider => "appdmg",
     source   => "http://downloads.sourceforge.net/project/webcam-osx/macam/0.9.2/macam.0.9.2.dmg",
-    # if you want video cam driver install manually
   }
-  package { 'HexFiend': # binary editor
-    provider => "compressed_app",
-    source   => "http://ridiculousfish.com/hexfiend/files/HexFiend.zip",
-  }
-  package { 'MacOView':
-    source   => 'http://downloads.sourceforge.net/project/machoview/MachOView-2.4.9000.dmg',
+  package { 'Sqwiggle':
+    source   => 'https://s3.amazonaws.com/sqwiggle-releases/mac/sqwiggle-0.6.3.dmg',
     provider => 'appdmg'
   }
-  # package { 'Gitter':
-  #   source   => 'http://update.gitter.im/osx/Gitter-1.146.dmg',
-  #   provider => 'appdmg'
-  # }
-  package { 'Dash':
-    source   => 'http://kapeli.com/Dash.zip',
+  package { 'DiskWave':
+    source   => 'http://diskwave.barthe.ph/download/DiskWave_0.4.dmg',
+    provider => 'appdmg'
+  }
+  package { 'Knock':
+    source   => 'http://knock-updates.s3.amazonaws.com/Knock.zip',
     provider => 'compressed_app'
   }
-  # package { 'Sqwiggle':
-  #   source   => 'https://s3.amazonaws.com/sqwiggle-releases/mac/sqwiggle-0.4.8.dmg',
-  #   provider => 'appdmg'
-  # }
-
   include google_japanese_input
   include dropbox
   include skype
   include hipchat
   include alfred
-  # include mou
-  # include mou::themes
-  # mou::preferences { 'Mou':
-  #   theme => 'Solarized (Dark)+',
-  #   css => 'GitHub2'
-  # }
   include evernote
   include vlc
   include flux
   include cinch
 
-  # rbenv plugins
-  repository { '/opt/boxen/rbenv/plugins/gem-src':
-    source  => 'amatsuda/gem-src'
-  }
+  # #
+  # # dotfile setting
+  # #
+  # $home     = "/Users/${::boxen_user}"
+  # $dotfiles = "${home}/dotfiles"
 
-  #
-  # dotfile setting
-  #
-  $home     = "/Users/${::boxen_user}"
-  $dotfiles = "${home}/dotfiles"
+  # repository { $dotfiles:
+  #   source  => 'ae06710/dotfiles'
+  # }
 
-  repository { $dotfiles:
-    source  => 'ae06710/dotfiles'
-  }
+  # exec { "dotfile-setup":
+  #   cwd => $dotfiles,
+  #   command => 'sh ${dotfiles}/install.sh',
+  #   creates => "${home}/.zshrc",
+  #   require => Repository[$dotfiles],
+  #   notify  => Exec['dotfile-submodule-update'],
+  # }
 
-  exec { "dotfile-setup":
-    cwd => $dotfiles,
-    command => 'sh ${dotfiles}/install.sh',
-    creates => "${home}/.zshrc",
-    require => Repository[$dotfiles],
-    notify  => Exec['dotfile-submodule-update'],
-  }
-
-  exec { "dotfile-submodule-update":
-    cwd => $dotfiles,
-    command => 'git submodule init && git submodule update',
-    creates => "${dotfiles}/antigen/.env",
-  }
+  # exec { "dotfile-submodule-update":
+  #   cwd => $dotfiles,
+  #   command => 'git submodule init && git submodule update',
+  #   creates => "${dotfiles}/antigen/.env",
+  # }
 }
