@@ -49,7 +49,7 @@ class people::ae06710 {
       'zsh-completions',            # shortcut change dir
       'resty',                      # curl wrapper cli
       'vim',                        # mac preinstalled vim is old X(
-      'the_silver_searcher',        # alternative grep
+      'pt',                         # the_platinum_searcher
       'proctools',                  # kill by process name. like $ pkill firefox
       'jq',                         # json perser pipeline
       'ctags',                      # vim compel
