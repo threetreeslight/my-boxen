@@ -123,6 +123,10 @@ class people::ae06710 {
     gem          => 'tmuxinator',
     ruby_version => '*'
   }
+  ruby_gem { 'cocoapods for all ruby versions':
+    gem          => 'cocoapods',
+    ruby_version => '*'
+  }
   # # rbenv plugins
   # repository { '/opt/boxen/rbenv/plugins/gem-src':
   #   source  => 'amatsuda/gem-src'
