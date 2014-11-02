@@ -115,21 +115,18 @@ class people::ae06710 {
   #   gem          => 'git-issue',
   #   ruby_version => '*'
   # }
-  # ruby_gem { 'chef for all ruby versions':
-  #   gem          => 'chef',
-  #   ruby_version => '*'
-  # }
-  # ruby_gem { 'knife-solo for all ruby versions':
-  #   gem          => 'knife-solo',
-  #   ruby_version => '*'
-  # }
   ruby_gem { 'rubocop for all ruby versions':
     gem          => 'rubocop',
+    ruby_version => '*'
+  }
+  ruby_gem { 'tmuxinator for all ruby versions':
+    gem          => 'tmuxinator',
     ruby_version => '*'
   }
   # # rbenv plugins
   # repository { '/opt/boxen/rbenv/plugins/gem-src':
   #   source  => 'amatsuda/gem-src'
+  # }
 
   #
   # Client application
