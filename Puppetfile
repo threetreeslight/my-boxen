@@ -69,7 +69,7 @@ github "java",           "1.7.0"
 github "python",         "2.0.1", :repo => "mloberg/puppet-python" # Mange Python with Boxen and pyenv
 github "libtool",        "1.0.0" # use for php
 github "php",            "1.2.4"
-github "vagrant",        "3.1.1"
+github "vagrant",        "3.2.0"
 github "zsh",            "1.0.0"
 github "heroku",         "2.0.0"
 github "postgresql",     "3.0.0"
@@ -78,6 +78,6 @@ github "redis",          "3.0.2"
 
 # client application
 github "virtualbox",     "1.0.10"
-github "sublime_text_2", "1.1.2"
+github "sublime_text",   "1.0.2"
 # github "mou",                   "1.1.3"
 

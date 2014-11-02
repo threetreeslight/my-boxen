@@ -1,5 +1,4 @@
 class people::ae06710 {
-
   #
   # osx
   #
@@ -66,30 +65,30 @@ class people::ae06710 {
     ]:
   }
 
-  include java
-  python::version { '2.7.6': }
-  $python_version = '2.7.6'
-  python::package { "virtualenv for ${python_version}":
-    package => 'virtualenv',
-    python  => $python_version,
-  }
-  python::package { "virtualenvwrapper ${python_version}":
-    package => 'virtualenvwrapper',
-    python  => $python_version,
-  }
-  python::package { "percol for ${python_version}":
-    package => 'percol',
-    python  => $python_version,
-  }
-  python::package { "stellar for ${python_version}":
-    package => 'stellar',
-    python  => $python_version,
-  }
-  python::package { "awscli for ${python_version}":
-    package => 'awscli',
-    python  => $python_version,
-  }
-  class { 'python::global': version => '2.7.6' }
+  # include java
+  # python::version { '2.7.6': }
+  # $python_version = '2.7.6'
+  # python::package { "virtualenv for ${python_version}":
+  #   package => 'virtualenv',
+  #   python  => $python_version,
+  # }
+  # python::package { "virtualenvwrapper ${python_version}":
+  #   package => 'virtualenvwrapper',
+  #   python  => $python_version,
+  # }
+  # python::package { "percol for ${python_version}":
+  #   package => 'percol',
+  #   python  => $python_version,
+  # }
+  # python::package { "stellar for ${python_version}":
+  #   package => 'stellar',
+  #   python  => $python_version,
+  # }
+  # python::package { "awscli for ${python_version}":
+  #   package => 'awscli',
+  #   python  => $python_version,
+  # }
+  # class { 'python::global': version => '2.7.6' }
   # include php::5_4_17
   # include php::composer
   # include php::fpm::5_4_17
@@ -157,22 +156,20 @@ class people::ae06710 {
   vagrant::plugin { 'vagrant-vbox-snapshot': }
 
   # Editor
-  include sublime_text_2
-  sublime_text_2::package { 'Emmet': source => 'sergeche/emmet-sublime' }
-  sublime_text_2::package { 'GitGutter': source => 'jisaacks/GitGutter' }
-  sublime_text_2::package { 'TrailingSpaces': source => 'SublimeText/TrailingSpaces' }
-  sublime_text_2::package { 'ConvertToUTF-8': source => 'seanliang/ConvertToUTF8' }
-  sublime_text_2::package { 'SublimeLinter-ruby': source => 'SublimeLinter/SublimeLinter-ruby' }
-  sublime_text_2::package { 'SublimeLinter-haml': source => 'SublimeLinter/SublimeLinter-haml' }
-  sublime_text_2::package { 'SublimeLinter-json': source => 'SublimeLinter/SublimeLinter-json' }
-  sublime_text_2::package { 'SublimeLinter-jshint': source => 'SublimeLinter/SublimeLinter-jshint' }
-  sublime_text_2::package { 'SublimeLinter-coffeelint': source => 'SublimeLinter/SublimeLinter-coffeelint' }
-  package { 'HexFiend':
-    source   => "http://ridiculousfish.com/hexfiend/files/HexFiend.zip",
-    provider => "compressed_app",
-  }
+  include sublime_text
+  sublime_text::package { 'Emmet': source => 'sergeche/emmet-sublime' }
+  sublime_text::package { 'ConvertToUTF-8': source => 'seanliang/ConvertToUTF8' }
+  sublime_text::package { 'SublimeLinter-ruby': source => 'SublimeLinter/SublimeLinter-ruby' }
+  sublime_text::package { 'SublimeLinter-haml': source => 'SublimeLinter/SublimeLinter-haml' }
+  sublime_text::package { 'SublimeLinter-json': source => 'SublimeLinter/SublimeLinter-json' }
+  sublime_text::package { 'SublimeLinter-jshint': source => 'SublimeLinter/SublimeLinter-jshint' }
+  sublime_text::package { 'SublimeLinter-coffeelint': source => 'SublimeLinter/SublimeLinter-coffeelint' }
+  # package { 'HexFiend':
+  #   source   => "http://ridiculousfish.com/hexfiend/files/HexFiend.zip",
+  #   provider => "compressed_app",
+  # }
   package { 'MacOView':
-    source   => 'http://downloads.sourceforge.net/project/machoview/MachOView-2.4.9000.dmg',
+    source   => 'http://downloads.sourceforge.net/project/machoview/MachOView-2.4.9200.dmg',
     provider => 'appdmg'
   }
   package { 'Dash':
@@ -187,7 +184,7 @@ class people::ae06710 {
   # Uploader
   package { 'Cyberduck':
     provider   => 'compressed_app',
-    source     => 'http://cyberduck.ch/Cyberduck-4.5.2.zip'
+    source     => 'https://update.cyberduck.io/Cyberduck-4.5.2.zip'
   }
   # package { 'filezilla':
   #   provider => 'compressed_app',
@@ -216,13 +213,13 @@ class people::ae06710 {
       source   => 'https://dl.google.com/chrome/mac/stable/GoogleChrome.dmg',
   }
   package { 'Firefox':
-    source   => "http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/${version}/mac/en-US/Firefox%2032.0.dmg",
+    source   => 'https://download.mozilla.org/?product=firefox-33.0.2-SSL&os=osx&lang=en-US',
     provider => 'appdmg'
   }
 
   # virus
   package { 'ClamXav':
-    source   => "http://www.clamxav.com/downloads/ClamXav_2.6.1.dmg",
+    source   => "http://www.clamxav.com/downloads/ClamXav_2.6.4.dmg",
     provider => appdmg;
   }
 
@@ -261,7 +258,7 @@ class people::ae06710 {
   }
   package { 'VLC':
     provider => 'appdmg',
-    source   => "http://artfiles.org/videolan.org/vlc/${version}/macosx/vlc-2.1.4.dmg",
+    source   => 'http://get.videolan.org/vlc/2.1.5/macosx/vlc-2.1.5.dmg',
   }
   package { 'Gifzo':
     provider => 'compressed_app',

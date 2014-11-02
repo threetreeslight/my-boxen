@@ -109,9 +109,9 @@ GITHUBTARBALL
     ruby (8.1.4)
 
 GITHUBTARBALL
-  remote: boxen/puppet-sublime_text_2
+  remote: boxen/puppet-sublime_text
   specs:
-    sublime_text_2 (1.1.2)
+    sublime_text (1.0.2)
 
 GITHUBTARBALL
   remote: boxen/puppet-sudo
@@ -126,7 +126,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-vagrant
   specs:
-    vagrant (3.1.1)
+    vagrant (3.2.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-virtualbox
@@ -196,10 +196,10 @@ DEPENDENCIES
   repository (= 2.3.0)
   ruby (= 8.1.4)
   stdlib (= 4.2.1)
-  sublime_text_2 (= 1.1.2)
+  sublime_text (= 1.0.2)
   sudo (= 1.0.0)
   sysctl (= 1.0.1)
-  vagrant (= 3.1.1)
+  vagrant (= 3.2.0)
   virtualbox (= 1.0.10)
   xquartz (= 1.2.1)
   zsh (= 1.0.0)
