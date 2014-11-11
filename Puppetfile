@@ -65,7 +65,7 @@ github "osx",               "2.7.0"
 github "property_list_key", "0.2.1", :repo => "glarizza/puppet-property_list_key"
 
 # lib
-github "java",           "1.7.0"
+github "java",           "1.7.1"
 github "python",         "2.0.1", :repo => "mloberg/puppet-python" # Mange Python with Boxen and pyenv
 github "libtool",        "1.0.0" # use for php
 github "php",            "1.2.4"

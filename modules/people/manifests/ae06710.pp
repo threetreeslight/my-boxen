@@ -65,7 +65,8 @@ class people::ae06710 {
     ]:
   }
 
-  # include java
+  include java
+
   # python::version { '2.7.6': }
   # $python_version = '2.7.6'
   # python::package { "virtualenv for ${python_version}":
