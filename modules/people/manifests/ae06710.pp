@@ -61,6 +61,7 @@ class people::ae06710 {
       'graphviz',                   # graph generator (use for rails-erd)
       'ffmpeg',
       'mysql',
+      'memcached',
       'packer'                      # vagrant box maker
     ]:
   }
