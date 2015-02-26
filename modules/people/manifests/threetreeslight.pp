@@ -1,4 +1,4 @@
-class people::ae06710 {
+class people::threetreeslight {
   #
   # osx
   #
