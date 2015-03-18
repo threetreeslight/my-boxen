@@ -184,10 +184,11 @@ class people::threetreeslight {
     source   => 'http://cdn1.evernote.com/mac/release/Evernote_402634.dmg'
   }
 
-  package { 'chef DK':
-    provider => 'appdmg',
-    source   => 'https://opscode-omnibus-packages.s3.amazonaws.com/mac_os_x/10.8/x86_64/chefdk-0.4.0-1.dmg'
-  }
+  # It tooooooo havey!!!
+  # package { 'chef DK':
+  #   provider => 'appdmg',
+  #   source   => 'https://opscode-omnibus-packages.s3.amazonaws.com/mac_os_x/10.8/x86_64/chefdk-0.4.0-1.dmg'
+  # }
 
   # Uploader
   package { 'Cyberduck':
