@@ -51,7 +51,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-java
   specs:
-    java (1.7.1)
+    java (1.8.3)
 
 GITHUBTARBALL
   remote: boxen/puppet-libtool
@@ -76,7 +76,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-osx
   specs:
-    osx (2.7.0)
+    osx (2.8.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-phantomjs
@@ -86,7 +86,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-php
   specs:
-    php (1.2.4)
+    php (2.0.1)
 
 GITHUBTARBALL
   remote: boxen/puppet-pkgconfig
@@ -96,12 +96,12 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-postgresql
   specs:
-    postgresql (3.0.0)
+    postgresql (4.0.1)
 
 GITHUBTARBALL
   remote: boxen/puppet-redis
   specs:
-    redis (3.0.2)
+    redis (3.1.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-repository
@@ -131,12 +131,7 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-vagrant
   specs:
-    vagrant (3.2.0)
-
-GITHUBTARBALL
-  remote: boxen/puppet-virtualbox
-  specs:
-    virtualbox (1.0.10)
+    vagrant (3.3.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-xquartz
@@ -181,31 +176,31 @@ DEPENDENCIES
   gcc (= 2.2.1)
   git (= 2.7.9)
   go (= 2.1.0)
+  heroku (= 2.0.0)
   homebrew (= 1.12.0)
   hub (= 1.4.1)
   inifile (= 1.1.1)
-  java (= 1.7.1)
+  java (= 1.8.3)
   libtool (= 1.0.0)
   module_data (= 0.0.3)
   nginx (= 1.4.5)
   nodejs (= 4.0.1)
   openssl (= 1.0.0)
-  osx (= 2.7.0)
-  php (= 1.2.4)
-  postgresql (= 3.0.0)
+  osx (= 2.8.0)
+  phantomjs (= 2.4.0)
+  php (= 2.0.1)
+  pkgconfig (= 1.0.0)
+  postgresql (= 4.0.1)
   property_list_key (= 0.2.1)
   python (= 2.0.1)
-  redis (= 3.0.2)
-  phantomjs (= 2.4.0)
-  pkgconfig (= 1.0.0)
+  redis (= 3.1.0)
   repository (= 2.4.1)
   ruby (= 8.5.2)
   stdlib (= 4.2.1)
   sublime_text (= 1.0.2)
   sudo (= 1.0.0)
   sysctl (= 1.0.1)
-  vagrant (= 3.2.0)
-  virtualbox (= 1.0.10)
+  vagrant (= 3.3.0)
   xquartz (= 1.2.1)
   zsh (= 1.0.0)
 

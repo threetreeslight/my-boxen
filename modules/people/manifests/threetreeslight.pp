@@ -7,6 +7,8 @@ class people::threetreeslight {
   # Finder
   include osx::finder::unhide_library
   include osx::finder::show_hidden_files
+  include osx::finder::show_all_filename_extensions
+  include osx::finder::show_warning_before_emptying_trash
   # Dock
   include osx::dock::2d
   include osx::dock::autohide
@@ -150,13 +152,34 @@ class people::threetreeslight {
     source   => "http://sequel-pro.googlecode.com/files/sequel-pro-${sequel_version}.dmg",
   }
 
-  # vm
+  # virtualbox
+  class virtualbox (
+    $version = '4.3.14',
+    $patch_level = '95030'
+  ) {
+    exec { 'Kill Virtual Box Processes':
+      command     => 'pkill "VBoxXPCOMIPCD" || true && pkill "VBoxSVC" || true && pkill "VBoxHeadless" || true',
+      path        => '/usr/bin:/usr/sbin:/bin:/usr/local/bin',
+      refreshonly => true,
+    }
+
+    package { "VirtualBox-${version}-${patch_level}":
+      ensure   => installed,
+      provider => 'pkgdmg',
+      source   => "http://download.virtualbox.org/virtualbox/${version}/VirtualBox-${version}-${patch_level}-OSX.dmg",
+      require  => Exec['Kill Virtual Box Processes'],
+    }
+  }
   include virtualbox
+
   include vagrant
-  vagrant::plugin { 'vagrant-aws': }
-  vagrant::plugin { 'vagrant-digitalocean': }
-  vagrant::plugin { 'vagrant-omnibus': }
-  vagrant::plugin { 'vagrant-vbox-snapshot': }
+  vagrant::plugin { 'sahara':
+    prefix => false
+  }
+  vagrant::plugin { 'aws': }
+  vagrant::plugin { 'digitalocean': }
+  vagrant::plugin { 'omnibus': }
+  vagrant::plugin { 'vbox-snapshot': }
 
   # Editor
   include sublime_text

@@ -62,24 +62,23 @@ github "xquartz",     "1.2.1"
 # https://github.com/boxen.
 
 # general
-github "osx",               "2.7.0"
+github "osx",               "2.8.0"
 github "property_list_key", "0.2.1", :repo => "glarizza/puppet-property_list_key"
 
 # lib
-github "java",           "1.7.1"
+github "java",           "1.8.3"
 github "python",         "2.0.1", :repo => "mloberg/puppet-python" # Mange Python with Boxen and pyenv
 github "libtool",        "1.0.0" # use for php
-github "php",            "1.2.4"
-github "vagrant",        "3.2.0"
+github "php",            "2.0.1"
+github "vagrant",        "3.3.0"
 github "zsh",            "1.0.0"
 github "heroku",         "2.0.0"
-github "postgresql",     "3.0.3"
+github "postgresql",     "4.0.1"
 # github "mysql",         "2.0.1"
 github "sysctl",         "1.0.1" # use for postgresql
 github "redis",          "3.1.0"
 
 # client application
-github "virtualbox",     "1.0.10"
-github "sublime_text",   "1.0.2"
+github "sublime_text",   "1.1.0"
 # github "mou",                   "1.1.3"
-#
+
