@@ -70,7 +70,7 @@ github "java",           "1.8.3"
 github "python",         "2.0.1", :repo => "mloberg/puppet-python" # Mange Python with Boxen and pyenv
 github "libtool",        "1.0.0" # use for php
 github "php",            "2.0.1"
-github "vagrant",        "3.3.0"
+github "vagrant",        "3.3.3"
 github "zsh",            "1.0.0"
 github "heroku",         "2.0.0"
 github "postgresql",     "4.0.1"
