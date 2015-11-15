@@ -34,7 +34,7 @@ class people::threetreeslight {
   #
   # lib
   #
-  homebrew::tap { 'homebrew/binary': }
+  # homebrew::tap { 'homebrew/binary': }
   package {
     [
       # readline install by mloberg/puppet-python
@@ -69,45 +69,6 @@ class people::threetreeslight {
   }
 
   include java
-
-  # python::version { '2.7.6': }
-  # $python_version = '2.7.6'
-  # python::package { "virtualenv for ${python_version}":
-  #   package => 'virtualenv',
-  #   python  => $python_version,
-  # }
-  # python::package { "virtualenvwrapper ${python_version}":
-  #   package => 'virtualenvwrapper',
-  #   python  => $python_version,
-  # }
-  # python::package { "percol for ${python_version}":
-  #   package => 'percol',
-  #   python  => $python_version,
-  # }
-  # python::package { "stellar for ${python_version}":
-  #   package => 'stellar',
-  #   python  => $python_version,
-  # }
-  # python::package { "awscli for ${python_version}":
-  #   package => 'awscli',
-  #   python  => $python_version,
-  # }
-  # class { 'python::global': version => '2.7.6' }
-  # include php::5_4_17
-  # include php::composer
-  # include php::fpm::5_4_17
-  # php::extension::pgsql { 'pgsql for 5.4.17':
-  #   php => '5.4.17'
-  # }
-  # php::extension::pdo_dblib { 'pdo_dblib for 5.4.17':
-  #   php => '5.4.17'
-  # }
-  # php::extension::apc { 'apc for 5.4.17':
-  #   php => '5.4.17'
-  # }
-  # php::extension::xdebug { 'xdebug for 5.4.17':
-  #   php => '5.4.17'
-  # }
   include postgresql
   include redis
   include zsh
@@ -173,12 +134,6 @@ class people::threetreeslight {
   include virtualbox
 
   include vagrant
-  vagrant::plugin { 'sahara':
-    prefix => false
-  }
-  vagrant::plugin { 'aws': }
-  vagrant::plugin { 'digitalocean': }
-  vagrant::plugin { 'omnibus': }
   vagrant::plugin { 'vbox-snapshot': }
 
   # Editor
@@ -264,14 +219,6 @@ class people::threetreeslight {
     provider => "appdmg",
     source   => "http://downloads.sourceforge.net/project/webcam-osx/macam/0.9.2/macam.0.9.2.dmg",
   }
-  package { 'DiskWave':
-    source   => 'http://diskwave.barthe.ph/download/DiskWave_0.4.dmg',
-    provider => 'appdmg'
-  }
-  package { 'Knock':
-    source   => 'http://knock-updates.s3.amazonaws.com/Knock.zip',
-    provider => 'compressed_app'
-  }
   package { 'google_japanese_input':
     source   => 'http://dl.google.com/dl/japanese-ime/1.8.1310.1/googlejapaneseinput.dmg',
     provider => 'pkgdmg'
@@ -279,14 +226,6 @@ class people::threetreeslight {
   package { 'Alfred 2':
     provider => 'compressed_app',
     source   => "http://cachefly.alfredapp.com/Alfred_2.4_279.zip"
-  }
-  package { 'Flux':
-    source => 'https://justgetflux.com/mac/fluxbeta.zip',
-    provider => 'compressed_app'
-  }
-  package { 'Cinch':
-    source   => 'http://www.irradiatedsoftware.com/download/Cinch.zip',
-    provider => 'compressed_app'
   }
   package { 'VLC':
     provider => 'appdmg',
@@ -298,18 +237,9 @@ class people::threetreeslight {
   }
 
   # Communication
-  package { 'Sqwiggle':
-    source   => 'https://s3.amazonaws.com/sqwiggle-releases/mac/sqwiggle-0.6.3.dmg',
-    provider => 'appdmg'
-  }
   package { 'Skype':
     provider => 'appdmg',
     source   => 'http://download.skype.com/macosx/Skype_6.19.0.442.dmg',
-  }
-  package { 'HipChat':
-    provider => 'compressed_app',
-    source   => 'https://www.hipchat.com/downloads/latest/mac',
-    flavor   => 'zip',
   }
 
   # #
