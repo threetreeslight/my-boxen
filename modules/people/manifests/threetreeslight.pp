@@ -41,13 +41,17 @@ class people::threetreeslight {
       # 'readline',                   # use for ruby compile
       'pcre',                       # perl regular expression ( need compile php )
       'libpng',                     # png lib ( need compile php )
+      'libxml2',                    # need for nokogiri
       'coreutils',                  # change mac command to like GNU Linux
+      'openssl',
       'pstree',                     # like linux ps -f option cmd
       'wget',                       #
       'qt',                         # UI toolkit ( need capibara-webkit )
       'tree',                       # linux tree cmd
+      'pstree',                     # ps axf like command on FreeBSD
       'z',                          # shortcut change dir
-      'zsh-completions',            # shortcut change dir
+      'zsh',
+      'zsh-completions',
       'resty',                      # curl wrapper cli
       'vim',                        # mac preinstalled vim is old X(
       'pt',                         # the_platinum_searcher
@@ -58,12 +62,17 @@ class people::threetreeslight {
       'tmux',                       # terminal session
       'reattach-to-user-namespace', # use tmux to clipbord
       'tig',                        # git cui client
+      'hub',                        # github cli
       'sshrc',                      # directive ssh setting
       'imagemagick',                # convert, Edit, And Compose Images
+      'libsass',
       'graphviz',                   # graph generator (use for rails-erd)
       'ffmpeg',
       'mysql',
+      'mycli',
+      'pgcli',
       'memcached',
+      'siege',                      # performance test
       'packer'                      # vagrant box maker
     ]:
   }
