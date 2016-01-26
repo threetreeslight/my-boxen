@@ -34,7 +34,6 @@ class people::threetreeslight {
   #
   # lib
   #
-  # homebrew::tap { 'homebrew/binary': }
   package {
     [
       # readline install by mloberg/puppet-python
@@ -44,7 +43,6 @@ class people::threetreeslight {
       'libxml2',                    # need for nokogiri
       'coreutils',                  # change mac command to like GNU Linux
       'openssl',
-      'pstree',                     # like linux ps -f option cmd
       'wget',                       #
       'qt',                         # UI toolkit ( need capibara-webkit )
       'tree',                       # linux tree cmd
@@ -52,10 +50,7 @@ class people::threetreeslight {
       'z',                          # shortcut change dir
       'zsh',
       'zsh-completions',
-      'resty',                      # curl wrapper cli
       'vim',                        # mac preinstalled vim is old X(
-      'pt',                         # the_platinum_searcher
-      'proctools',                  # kill by process name. like $ pkill firefox
       'jq',                         # json perser pipeline
       'ctags',                      # vim compel
       'putty',                      # use convert ppk key to OpenSSH format
@@ -76,6 +71,11 @@ class people::threetreeslight {
       'packer'                      # vagrant box maker
     ]:
   }
+  include brewcask # taps homebrew-cask / installs brew-cask
+
+  # now you can install packages using homebrew-cask
+  # package { 'adium': provider => 'brewcask' }
+  # }
 
   include java
   include postgresql
@@ -170,12 +170,6 @@ class people::threetreeslight {
     provider => 'appdmg_eula',
     source   => 'http://cdn1.evernote.com/mac/release/Evernote_402634.dmg'
   }
-
-  # It tooooooo havey!!!
-  # package { 'chef DK':
-  #   provider => 'appdmg',
-  #   source   => 'https://opscode-omnibus-packages.s3.amazonaws.com/mac_os_x/10.8/x86_64/chefdk-0.4.0-1.dmg'
-  # }
 
   # Uploader
   package { 'Cyberduck':
