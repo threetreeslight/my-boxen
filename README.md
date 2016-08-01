@@ -31,7 +31,7 @@ and detect most of these and tell you anyway):
 
 ### Dependencies
 
-**Install the Xcode Command Lines Tools and/or full Xcode.**
+**Install the Xcode Command Line Tools and/or full Xcode.**
 This will grant you the most predictable behavior in building apps like
 MacVim.
 
@@ -126,6 +126,7 @@ If that runs cleanly, you're in good shape.
 This template project provides the following by default:
 
 * Homebrew
+* Homebrew-Cask
 * Git
 * Hub
 * dnsmasq w/ .dev resolver for localhost
@@ -136,8 +137,8 @@ This template project provides the following by default:
 * Node.js 0.12
 * Ruby 1.9.3
 * Ruby 2.0.0
-* Ruby 2.1.7
-* Ruby 2.2.3
+* Ruby 2.1.8
+* Ruby 2.2.4
 * ack
 * Findutils
 * GNU tar
