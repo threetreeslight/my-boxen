@@ -49,16 +49,6 @@ GITHUBTARBALL
     hub (1.4.1)
 
 GITHUBTARBALL
-  remote: boxen/puppet-java
-  specs:
-    java (1.8.3)
-
-GITHUBTARBALL
-  remote: boxen/puppet-libtool
-  specs:
-    libtool (1.0.0)
-
-GITHUBTARBALL
   remote: boxen/puppet-nginx
   specs:
     nginx (1.7.0)
@@ -84,24 +74,9 @@ GITHUBTARBALL
     phantomjs (3.0.0)
 
 GITHUBTARBALL
-  remote: boxen/puppet-php
-  specs:
-    php (2.0.1)
-
-GITHUBTARBALL
   remote: boxen/puppet-pkgconfig
   specs:
     pkgconfig (1.0.0)
-
-GITHUBTARBALL
-  remote: boxen/puppet-postgresql
-  specs:
-    postgresql (4.0.1)
-
-GITHUBTARBALL
-  remote: boxen/puppet-redis
-  specs:
-    redis (3.1.0)
 
 GITHUBTARBALL
   remote: boxen/puppet-repository
@@ -114,19 +89,9 @@ GITHUBTARBALL
     ruby (8.5.4)
 
 GITHUBTARBALL
-  remote: boxen/puppet-sublime_text
-  specs:
-    sublime_text (1.1.0)
-
-GITHUBTARBALL
   remote: boxen/puppet-sudo
   specs:
     sudo (1.0.0)
-
-GITHUBTARBALL
-  remote: boxen/puppet-sysctl
-  specs:
-    sysctl (1.0.1)
 
 GITHUBTARBALL
   remote: boxen/puppet-vagrant
@@ -139,19 +104,9 @@ GITHUBTARBALL
     xquartz (1.2.1)
 
 GITHUBTARBALL
-  remote: boxen/puppet-zsh
-  specs:
-    zsh (1.0.0)
-
-GITHUBTARBALL
   remote: glarizza/puppet-property_list_key
   specs:
     property_list_key (0.2.1)
-
-GITHUBTARBALL
-  remote: mloberg/puppet-python
-  specs:
-    python (2.0.1)
 
 GITHUBTARBALL
   remote: puppetlabs/puppetlabs-inifile
@@ -180,27 +135,18 @@ DEPENDENCIES
   homebrew (= 2.0.2)
   hub (= 1.4.1)
   inifile (= 1.4.1)
-  java (= 1.8.3)
-  libtool (= 1.0.0)
   module_data (= 0.0.4)
   nginx (= 1.7.0)
   nodejs (= 5.0.0)
   openssl (= 1.0.0)
   osx (= 2.8.0)
   phantomjs (= 3.0.0)
-  php (= 2.0.1)
   pkgconfig (= 1.0.0)
-  postgresql (= 4.0.1)
   property_list_key (= 0.2.1)
-  python (= 2.0.1)
-  redis (= 3.1.0)
   repository (= 2.4.1)
   ruby (= 8.5.4)
   stdlib (= 4.7.0)
-  sublime_text (= 1.1.0)
   sudo (= 1.0.0)
-  sysctl (= 1.0.1)
   vagrant (= 3.3.3)
   xquartz (= 1.2.1)
-  zsh (= 1.0.0)
 

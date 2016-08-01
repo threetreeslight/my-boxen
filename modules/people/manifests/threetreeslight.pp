@@ -32,63 +32,76 @@ class people::threetreeslight {
   include osx::keyboard::capslock_to_control
 
   #
-  # lib
+  # package
   #
   package {
     [
       # readline install by mloberg/puppet-python
       # 'readline',                   # use for ruby compile
-      'pcre',                       # perl regular expression ( need compile php )
-      'libpng',                     # png lib ( need compile php )
-      'libxml2',                    # need for nokogiri
       'coreutils',                  # change mac command to like GNU Linux
-      'openssl',
-      'wget',                       #
-      'qt',                         # UI toolkit ( need capibara-webkit )
-      'tree',                       # linux tree cmd
-      'pstree',                     # ps axf like command on FreeBSD
-      'z',                          # shortcut change dir
-      'zsh',
-      'zsh-completions',
-      'vim',                        # mac preinstalled vim is old X(
-      'jq',                         # json perser pipeline
       'ctags',                      # vim compel
-      'putty',                      # use convert ppk key to OpenSSH format
-      'tmux',                       # terminal session
-      'reattach-to-user-namespace', # use tmux to clipbord
-      'tig',                        # git cui client
-      'hub',                        # github cli
-      'sshrc',                      # directive ssh setting
-      'imagemagick',                # convert, Edit, And Compose Images
-      'libsass',
-      'graphviz',                   # graph generator (use for rails-erd)
       'ffmpeg',
-      'mysql',
-      'mycli',
-      'pgcli',
+      'graphviz',                   # graph generator (use for rails-erd)
+      'hub',                        # github cli
+      'imagemagick',                # convert, Edit, And Compose Images
+      'jq',                         # json perser pipeline
+      'libpng',                     # png lib ( need compile php )
+      'libsass',
+      'libxml2',                    # need for nokogiri
       'memcached',
+      'mycli',
+      'mysql',
+      'openssl',
+      'packer',
+      'pcre',                       # perl regular expression ( need compile php )
+      'pgcli',
+      'pstree',                     # ps axf like command on FreeBSD
+      'putty',                      # use convert ppk key to OpenSSH format
+      'qt',                         # UI toolkit ( need capibara-webkit )
+      'reattach-to-user-namespace', # use tmux to clipbord
+      'redis',
       'siege',                      # performance test
-      'packer'                      # vagrant box maker
+      'tig',                        # git cui client
+      'tmux',                       # terminal session
+      'tree',                       # linux tree cmd
+      'vim',                        # mac preinstalled vim is old X(
+      'wget',                       #
+      'z',                          # memois cd
+      'zsh',
+      'zsh-completions'
     ]:
   }
-  include brewcask # taps homebrew-cask / installs brew-cask
+  # package { 'evernote': provider => 'brewcask' }
+  package { 'alfred': provider => 'brewcask' }
+  package { 'amethyst': provider => 'brewcask' }
+  package { 'atom': provider => 'brewcask' }
+  package { 'caffeine': provider => 'brewcask' }
+  package { 'dash': provider => 'brewcask' }
+  package { 'dropbox': provider => 'brewcask' }
+  package { 'firefox': provider => 'brewcask' }
+  package { 'gitify': provider => 'brewcask' }
+  package { 'google-chrome': provider => 'brewcask' }
+  package { 'google-japanese-ime': provider => 'brewcask' }
+  package { 'gyazo': provider => 'brewcask' }
+  package { 'flux': provider => 'brewcask' }
+  package { 'ios-console': provider => 'brewcask' }
+  package { 'iterm2': provider => 'brewcask' }
+  package { 'karabiner': provider => 'brewcask' }
+  package { 'language-switcher': provider => 'brewcask' }
+  package { 'lastpass': provider => 'brewcask' }
+  package { 'mysqlworkbench': provider => 'brewcask' }
+  package { 'postman': provider => 'brewcask' }
+  package { 'sequel-pro': provider => 'brewcask' }
+  package { 'simpholders': provider => 'brewcask' }
+  package { 'slack': provider => 'brewcask' }
+  package { 'skype': provider => 'brewcask' }
+  package { 'virtualbox': provider => 'brewcask' }
+  package { 'vlc': provider => 'brewcask' }
+  package { 'wmail': provider => 'brewcask' }
 
-  # now you can install packages using homebrew-cask
-  # package { 'adium': provider => 'brewcask' }
-  # }
-
-  include java
-  include postgresql
-  include redis
-  include zsh
-  phantomjs::version { '1.9.2': }
-  include heroku
-
+  #
   # ruby
-  # ruby_gem { 'git-issue for all ruby versions':
-  #   gem          => 'git-issue',
-  #   ruby_version => '*'
-  # }
+  #
   ruby_gem { 'rubocop for all ruby versions':
     gem          => 'rubocop',
     ruby_version => '*'
@@ -107,154 +120,24 @@ class people::threetreeslight {
   # }
 
   #
-  # Client application
+  # phantomjs
   #
-  # terminal
-  package { 'iTerm':
-    source   => "http://www.iterm2.com/downloads/beta/iTerm2-1_0_0_20140629.zip",
-    provider => 'compressed_app'
-  }
+  phantomjs::version { '1.9.2': }
 
-  # DB
-  $sequel_version='1.0.2'
-  package { "Sequel-Pro-${sequel_version}":
-    provider => 'appdmg',
-    source   => "http://sequel-pro.googlecode.com/files/sequel-pro-${sequel_version}.dmg",
-  }
-
-  # virtualbox
-  class virtualbox (
-    $version = '4.3.14',
-    $patch_level = '95030'
-  ) {
-    exec { 'Kill Virtual Box Processes':
-      command     => 'pkill "VBoxXPCOMIPCD" || true && pkill "VBoxSVC" || true && pkill "VBoxHeadless" || true',
-      path        => '/usr/bin:/usr/sbin:/bin:/usr/local/bin',
-      refreshonly => true,
-    }
-
-    package { "VirtualBox-${version}-${patch_level}":
-      ensure   => installed,
-      provider => 'pkgdmg',
-      source   => "http://download.virtualbox.org/virtualbox/${version}/VirtualBox-${version}-${patch_level}-OSX.dmg",
-      require  => Exec['Kill Virtual Box Processes'],
-    }
-  }
-  include virtualbox
-
+  #
+  # vagrant
+  #
   include vagrant
   vagrant::plugin { 'vbox-snapshot': }
-
-  # Editor
-  include sublime_text
-  sublime_text::package { 'Emmet': source => 'sergeche/emmet-sublime' }
-  sublime_text::package { 'ConvertToUTF-8': source => 'seanliang/ConvertToUTF8' }
-  sublime_text::package { 'SublimeLinter-ruby': source => 'SublimeLinter/SublimeLinter-ruby' }
-  sublime_text::package { 'SublimeLinter-haml': source => 'SublimeLinter/SublimeLinter-haml' }
-  sublime_text::package { 'SublimeLinter-json': source => 'SublimeLinter/SublimeLinter-json' }
-  sublime_text::package { 'SublimeLinter-jshint': source => 'SublimeLinter/SublimeLinter-jshint' }
-  sublime_text::package { 'SublimeLinter-coffeelint': source => 'SublimeLinter/SublimeLinter-coffeelint' }
-  # package { 'HexFiend':
-  #   source   => "http://ridiculousfish.com/hexfiend/files/HexFiend.zip",
-  #   provider => "compressed_app",
-  # }
-  package { 'MacOView':
-    source   => 'http://downloads.sourceforge.net/project/machoview/MachOView-2.4.9200.dmg',
-    provider => 'appdmg'
-  }
-  package { 'Dash':
-    source   => 'http://kapeli.com/Dash.zip',
-    provider => 'compressed_app'
-  }
-  package { 'evernote':
-    provider => 'appdmg_eula',
-    source   => 'http://cdn1.evernote.com/mac/release/Evernote_402634.dmg'
-  }
-
-  # Uploader
-  package { 'Cyberduck':
-    provider   => 'compressed_app',
-    source     => 'https://update.cyberduck.io/Cyberduck-4.5.2.zip'
-  }
-  # package { 'filezilla':
-  #   provider => 'compressed_app',
-  #   source => 'http://downloads.sourceforge.net/project/filezilla/FileZilla_Client/3.7.3/FileZilla_3.7.3_i686-apple-darwin9.app.tar.bz2',
-  # }
-
-  # Storage
-  package { 'Dropbox':
-    provider => 'appdmg',
-    source   => "https://d1ilhw0800yew8.cloudfront.net/client/Dropbox%202.10.28.dmg",
-  }
-
-  # iOS dev utility
-  package { 'testflight':
-      provider => "compressed_app",
-      source   => "https://d193ln56du8muy.cloudfront.net/desktop_app/1381509820/TestFlight-Desktop-1.0-Beta(313).zip",
-  }
-  package { 'SimPholders2':
-    source   => 'http://simpholders.com/site/assets/files/1098/sp20a-87.zip',
-    provider => 'compressed_app',
-  }
-
-  # Browser
-  package { 'Chrome':
-      provider => 'appdmg',
-      source   => 'https://dl.google.com/chrome/mac/stable/GoogleChrome.dmg',
-  }
-  package { 'Firefox':
-    source   => 'https://download.mozilla.org/?product=firefox-33.0.2-SSL&os=osx&lang=en-US',
-    provider => 'appdmg'
-  }
-
-  # virus
-  package { 'ClamXav':
-    source   => "http://www.clamxav.com/downloads/ClamXav_2.6.4.dmg",
-    provider => appdmg;
-  }
-
-  # Utility
-  package { 'Language Switcher':
-    provider => "appdmg",
-    source   => "http://www.tj-hd.co.uk/downloads/Language_Switcher_1_1_7.dmg",
-  }
-  package { 'macam':
-    provider => "appdmg",
-    source   => "http://downloads.sourceforge.net/project/webcam-osx/macam/0.9.2/macam.0.9.2.dmg",
-  }
-  package { 'google_japanese_input':
-    source   => 'http://dl.google.com/dl/japanese-ime/1.8.1310.1/googlejapaneseinput.dmg',
-    provider => 'pkgdmg'
-  }
-  package { 'Alfred 2':
-    provider => 'compressed_app',
-    source   => "http://cachefly.alfredapp.com/Alfred_2.4_279.zip"
-  }
-  package { 'VLC':
-    provider => 'appdmg',
-    source   => 'http://get.videolan.org/vlc/2.1.5/macosx/vlc-2.1.5.dmg',
-  }
-  package { 'Gifzo':
-    provider => 'compressed_app',
-    source   => 'http://gifzo.net/Gifzo.zip',
-  }
-
-  # Communication
-  package { 'Skype':
-    provider => 'appdmg',
-    source   => 'http://download.skype.com/macosx/Skype_6.19.0.442.dmg',
-  }
 
   # #
   # # dotfile setting
   # #
   # $home     = "/Users/${::boxen_user}"
   # $dotfiles = "${home}/dotfiles"
-
   # repository { $dotfiles:
   #   source  => 'ae06710/dotfiles'
   # }
-
   # exec { "dotfile-setup":
   #   cwd => $dotfiles,
   #   command => 'sh ${dotfiles}/install.sh',

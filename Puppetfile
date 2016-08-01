@@ -66,20 +66,8 @@ github "osx",               "2.8.0"
 github "property_list_key", "0.2.1", :repo => "glarizza/puppet-property_list_key"
 
 # lib
-github "java",           "1.8.3"
-github "python",         "2.0.1", :repo => "mloberg/puppet-python" # Mange Python with Boxen and pyenv
-github "libtool",        "1.0.0" # use for php
-github "php",            "2.0.1"
-github "vagrant",        "3.3.3"
-github "zsh",            "1.0.0"
-github "heroku",         "2.0.0"
-github "postgresql",     "4.0.1"
-# github "mysql",         "2.0.1"
-github "sysctl",         "1.0.1" # use for postgresql
-github "redis",          "3.1.0"
+github "vagrant", "3.3.3"
+github "heroku",  "2.0.0"
 
 # client application
-github "sublime_text",   "1.1.0"
-# github "mou",                   "1.1.3"
-
 # github "elasticsearch", "2.8.0"
