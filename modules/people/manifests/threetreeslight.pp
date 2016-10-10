@@ -34,6 +34,7 @@ class people::threetreeslight {
   #
   # package
   #
+  homebrew::tap { 'codekitchen/dinghy': }
   package {
     [
       # readline install by mloberg/puppet-python
@@ -41,6 +42,7 @@ class people::threetreeslight {
       'coreutils',                  # change mac command to like GNU Linux
       'ctags',                      # vim compel
       'ffmpeg',
+      'git-secrets',                # detect secret file on git hook
       'graphviz',                   # graph generator (use for rails-erd)
       'hub',                        # github cli
       'imagemagick',                # convert, Edit, And Compose Images
@@ -54,10 +56,12 @@ class people::threetreeslight {
       'openssl',
       'packer',
       'pcre',                       # perl regular expression ( need compile php )
+      'peco',                       # interactive filter
       'pgcli',
       'pstree',                     # ps axf like command on FreeBSD
       'putty',                      # use convert ppk key to OpenSSH format
       'qt',                         # UI toolkit ( need capibara-webkit )
+      'qt5',                        # UI toolkit ( need capibara-webkit )
       'reattach-to-user-namespace', # use tmux to clipbord
       'redis',
       'siege',                      # performance test
@@ -68,6 +72,7 @@ class people::threetreeslight {
       'wget',                       #
       'z',                          # memois cd
       'zsh',
+      'dinghy', # for docker
       'zsh-completions'
     ]:
   }
