@@ -38,7 +38,7 @@ class people::threetreeslight {
   package {
     [
       # readline install by mloberg/puppet-python
-      # 'readline',                   # use for ruby compile
+      'readline',                   # use for ruby compile
       'coreutils',                  # change mac command to like GNU Linux
       'ctags',                      # vim compel
       'ffmpeg',
@@ -47,6 +47,7 @@ class people::threetreeslight {
       'hub',                        # github cli
       'imagemagick',                # convert, Edit, And Compose Images
       'jq',                         # json perser pipeline
+      'libidn', # encode/decode utf-8 domain
       'libpng',                     # png lib ( need compile php )
       'libsass',
       'libxml2',                    # need for nokogiri
@@ -60,7 +61,6 @@ class people::threetreeslight {
       'pgcli',
       'pstree',                     # ps axf like command on FreeBSD
       'putty',                      # use convert ppk key to OpenSSH format
-      'qt',                         # UI toolkit ( need capibara-webkit )
       'qt5',                        # UI toolkit ( need capibara-webkit )
       'reattach-to-user-namespace', # use tmux to clipbord
       'redis',
@@ -76,7 +76,6 @@ class people::threetreeslight {
       'zsh-completions'
     ]:
   }
-  # package { 'evernote': provider => 'brewcask' }
   package { 'alfred': provider => 'brewcask' }
   package { 'amethyst': provider => 'brewcask' }
   package { 'atom': provider => 'brewcask' }
@@ -92,7 +91,6 @@ class people::threetreeslight {
   package { 'ios-console': provider => 'brewcask' }
   package { 'iterm2': provider => 'brewcask' }
   package { 'karabiner': provider => 'brewcask' }
-  package { 'language-switcher': provider => 'brewcask' }
   package { 'lastpass': provider => 'brewcask' }
   package { 'mysqlworkbench': provider => 'brewcask' }
   package { 'postman': provider => 'brewcask' }
