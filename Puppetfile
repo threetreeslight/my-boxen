@@ -63,11 +63,9 @@ github "xquartz",     "1.2.1"
 
 # general
 github "osx",               "2.8.0"
-github "property_list_key", "0.2.1", :repo => "glarizza/puppet-property_list_key"
 
 # lib
-github "vagrant", "3.3.3"
-github "heroku",  "2.0.0"
+github "vagrant", "3.3.4"
 
 # client application
 # github "elasticsearch", "2.8.0"

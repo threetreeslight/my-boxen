@@ -46,6 +46,7 @@ class people::threetreeslight {
       'ffmpeg',
       'git-secrets', # detect secret file on git hook
       'graphviz', # graph generator (use for rails-erd)
+      'heroku',
       'hub', # github cli
       'imagemagick', # convert, Edit, And Compose Images
       'jq', # json perser pipeline
@@ -131,7 +132,7 @@ class people::threetreeslight {
   #
   # phantomjs
   #
-  phantomjs::version { '1.9.2': }
+  phantomjs::version { '2.1.1': }
 
   #
   # vagrant
