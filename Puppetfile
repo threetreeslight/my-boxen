@@ -66,6 +66,3 @@ github "osx",               "2.8.0"
 
 # lib
 github "vagrant", "3.3.4"
-
-# client application
-# github "elasticsearch", "2.8.0"

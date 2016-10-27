@@ -34,11 +34,6 @@ GITHUBTARBALL
     go (2.1.0)
 
 GITHUBTARBALL
-  remote: boxen/puppet-heroku
-  specs:
-    heroku (2.0.0)
-
-GITHUBTARBALL
   remote: boxen/puppet-homebrew
   specs:
     homebrew (2.1.0)
@@ -96,17 +91,12 @@ GITHUBTARBALL
 GITHUBTARBALL
   remote: boxen/puppet-vagrant
   specs:
-    vagrant (3.3.3)
+    vagrant (3.3.4)
 
 GITHUBTARBALL
   remote: boxen/puppet-xquartz
   specs:
     xquartz (1.2.1)
-
-GITHUBTARBALL
-  remote: glarizza/puppet-property_list_key
-  specs:
-    property_list_key (0.2.1)
 
 GITHUBTARBALL
   remote: puppetlabs/puppetlabs-inifile
@@ -131,7 +121,6 @@ DEPENDENCIES
   gcc (= 3.0.2)
   git (= 2.10.0)
   go (= 2.1.0)
-  heroku (= 2.0.0)
   homebrew (= 2.1.0)
   hub (= 1.4.4)
   inifile (= 1.4.1)
@@ -142,11 +131,10 @@ DEPENDENCIES
   osx (= 2.8.0)
   phantomjs (= 3.0.0)
   pkgconfig (= 1.0.0)
-  property_list_key (= 0.2.1)
   repository (= 2.4.1)
   ruby (= 8.5.4)
   stdlib (= 4.7.0)
   sudo (= 1.0.0)
-  vagrant (= 3.3.3)
+  vagrant (= 3.3.4)
   xquartz (= 1.2.1)
 
