@@ -37,40 +37,44 @@ class people::threetreeslight {
   homebrew::tap { 'codekitchen/dinghy': }
   package {
     [
-      # readline install by mloberg/puppet-python
-      'readline',                   # use for ruby compile
-      'coreutils',                  # change mac command to like GNU Linux
-      'ctags',                      # vim compel
+      'readline', # use for ruby compile
+      'coreutils', # change mac command to like GNU Linux
+      'ctags', # vim compel
+      'elixir',
+      'embulk',
+      'direnv',
       'ffmpeg',
-      'git-secrets',                # detect secret file on git hook
-      'graphviz',                   # graph generator (use for rails-erd)
-      'hub',                        # github cli
-      'imagemagick',                # convert, Edit, And Compose Images
-      'jq',                         # json perser pipeline
+      'git-secrets', # detect secret file on git hook
+      'graphviz', # graph generator (use for rails-erd)
+      'hub', # github cli
+      'imagemagick', # convert, Edit, And Compose Images
+      'jq', # json perser pipeline
       'libidn', # encode/decode utf-8 domain
-      'libpng',                     # png lib ( need compile php )
-      'libsass',
-      'libxml2',                    # need for nokogiri
+      'libxml2', # need for nokogiri
       'memcached',
+      'mobile-shell',
       'mycli',
       'mysql',
+      'neovim',
       'openssl',
       'packer',
-      'pcre',                       # perl regular expression ( need compile php )
-      'peco',                       # interactive filter
+      'peco', # interactive filter
+      'percona-toolkit',
       'pgcli',
-      'pstree',                     # ps axf like command on FreeBSD
-      'putty',                      # use convert ppk key to OpenSSH format
-      'qt5',                        # UI toolkit ( need capibara-webkit )
+      'pstree', # ps axf like command on FreeBSD
+      'putty', # use convert ppk key to OpenSSH format
       'reattach-to-user-namespace', # use tmux to clipbord
-      'redis',
-      'siege',                      # performance test
-      'tig',                        # git cui client
-      'tmux',                       # terminal session
-      'tree',                       # linux tree cmd
-      'vim',                        # mac preinstalled vim is old X(
-      'wget',                       #
-      'z',                          # memois cd
+      'source-highlight', # performance test
+      'siege', # performance test
+      'terraform',
+      'tig', # git cui client
+      'tmux', # terminal session
+      'tmux-cssh', # terminal session
+      'tree', # linux tree cmd
+      'vim', # mac preinstalled vim is old X(
+      'watch',
+      'wget',
+      'z', # memois cd
       'zsh',
       'dinghy', # for docker
       'zsh-completions'
@@ -91,9 +95,11 @@ class people::threetreeslight {
   package { 'ios-console': provider => 'brewcask' }
   package { 'iterm2': provider => 'brewcask' }
   package { 'karabiner': provider => 'brewcask' }
+  package { 'kindlepreviewer': provider => 'brewcask' }
   package { 'lastpass': provider => 'brewcask' }
   package { 'mysqlworkbench': provider => 'brewcask' }
   package { 'postman': provider => 'brewcask' }
+  package { 'send-to-kindle': provider => 'brewcask' }
   package { 'sequel-pro': provider => 'brewcask' }
   package { 'simpholders': provider => 'brewcask' }
   package { 'slack': provider => 'brewcask' }
