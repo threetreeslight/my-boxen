@@ -62,7 +62,7 @@ github "xquartz",     "1.2.1"
 # https://github.com/boxen.
 
 # general
-github "osx",               "2.8.0"
+github "osx", "2.8.0"
 
 # lib
 github "vagrant", "3.3.4"

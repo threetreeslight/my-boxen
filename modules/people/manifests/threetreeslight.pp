@@ -96,11 +96,9 @@ class people::threetreeslight {
   package { 'ios-console': provider => 'brewcask' }
   package { 'iterm2': provider => 'brewcask' }
   package { 'karabiner': provider => 'brewcask' }
-  package { 'kindlepreviewer': provider => 'brewcask' }
   package { 'lastpass': provider => 'brewcask' }
   package { 'mysqlworkbench': provider => 'brewcask' }
   package { 'postman': provider => 'brewcask' }
-  package { 'send-to-kindle': provider => 'brewcask' }
   package { 'sequel-pro': provider => 'brewcask' }
   package { 'simpholders': provider => 'brewcask' }
   package { 'slack': provider => 'brewcask' }
