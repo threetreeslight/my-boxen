@@ -49,6 +49,7 @@ class people::threetreeslight {
       'heroku',
       'hub', # github cli
       'imagemagick', # convert, Edit, And Compose Images
+      'jid', # json interactive filter
       'jq', # json perser pipeline
       'libidn', # encode/decode utf-8 domain
       'libxml2', # need for nokogiri
