@@ -37,13 +37,14 @@ class people::threetreeslight {
   homebrew::tap { 'codekitchen/dinghy': }
   package {
     [
-      'readline', # use for ruby compile
+      'awscli',
       'coreutils', # change mac command to like GNU Linux
-      'ctags', # vim compel
+      'ctags',
+      'colordiff',
       'elixir',
       'embulk',
       'direnv',
-      'ffmpeg',
+      'gzip',
       'git-secrets', # detect secret file on git hook
       'graphviz', # graph generator (use for rails-erd)
       'heroku',
@@ -53,10 +54,8 @@ class people::threetreeslight {
       'jq', # json perser pipeline
       'libidn', # encode/decode utf-8 domain
       'libxml2', # need for nokogiri
-      'memcached',
       'mobile-shell',
       'mycli',
-      'mysql',
       'neovim',
       'openssl',
       'packer',
@@ -66,8 +65,8 @@ class people::threetreeslight {
       'pstree', # ps axf like command on FreeBSD
       'putty', # use convert ppk key to OpenSSH format
       'reattach-to-user-namespace', # use tmux to clipbord
+      'readline', # use for ruby compile
       'source-highlight', # performance test
-      'siege', # performance test
       'terraform',
       'tig', # git cui client
       'tmux', # terminal session
