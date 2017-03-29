@@ -41,12 +41,13 @@ class people::threetreeslight {
       'coreutils', # change mac command to like GNU Linux
       'ctags',
       'colordiff',
-      'elixir',
       'embulk',
       'direnv',
+      'docker',
+      'docker-compose',
+      'docker-machine',
       'gzip',
       'git-secrets', # detect secret file on git hook
-      'graphviz', # graph generator (use for rails-erd)
       'heroku',
       'hub', # github cli
       'imagemagick', # convert, Edit, And Compose Images
@@ -56,17 +57,19 @@ class people::threetreeslight {
       'libxml2', # need for nokogiri
       'mobile-shell',
       'mycli',
-      'neovim',
+      'mysql', # percona-toolkit and mycli are depend on it
       'openssl',
       'packer',
       'peco', # interactive filter
       'percona-toolkit',
+      'postgres', # pgcli is depends on it
       'pgcli',
       'pstree', # ps axf like command on FreeBSD
       'putty', # use convert ppk key to OpenSSH format
       'reattach-to-user-namespace', # use tmux to clipbord
       'readline', # use for ruby compile
       'source-highlight', # performance test
+      'sshrc',
       'terraform',
       'tig', # git cui client
       'tmux', # terminal session
@@ -83,8 +86,10 @@ class people::threetreeslight {
   }
   package { 'alfred': provider => 'brewcask' }
   package { 'amethyst': provider => 'brewcask' }
+  package { 'android-studio': provider => 'brewcask' }
   package { 'atom': provider => 'brewcask' }
   package { 'caffeine': provider => 'brewcask' }
+  package { 'chefdk': provider => 'brewcask' }
   package { 'dash': provider => 'brewcask' }
   package { 'dropbox': provider => 'brewcask' }
   package { 'firefox': provider => 'brewcask' }
@@ -102,7 +107,6 @@ class people::threetreeslight {
   package { 'sequel-pro': provider => 'brewcask' }
   package { 'simpholders': provider => 'brewcask' }
   package { 'slack': provider => 'brewcask' }
-  package { 'skype': provider => 'brewcask' }
   package { 'virtualbox': provider => 'brewcask' }
   package { 'vlc': provider => 'brewcask' }
   package { 'wmail': provider => 'brewcask' }
