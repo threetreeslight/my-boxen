@@ -35,6 +35,7 @@ class people::threetreeslight {
   # package
   #
   homebrew::tap { 'codekitchen/dinghy': }
+  homebrew::tap { 'brona/iproute2mac': } # Install ip command
   package {
     [
       'awscli',
@@ -52,6 +53,7 @@ class people::threetreeslight {
       'heroku',
       'hub', # github cli
       'imagemagick', # convert, Edit, And Compose Images
+      'iproute2mac', # Install ip command
       'jid', # json interactive filter
       'jq', # json perser pipeline
       'libidn', # encode/decode utf-8 domain
