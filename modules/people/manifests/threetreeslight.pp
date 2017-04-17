@@ -48,6 +48,7 @@ class people::threetreeslight {
       'docker-machine',
       'gzip',
       'git-secrets', # detect secret file on git hook
+      'git-now',
       'heroku',
       'hub', # github cli
       'imagemagick', # convert, Edit, And Compose Images
