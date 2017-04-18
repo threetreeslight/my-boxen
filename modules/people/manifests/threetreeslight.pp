@@ -52,6 +52,7 @@ class people::threetreeslight {
       'git-now',
       'heroku',
       'hub', # github cli
+      'htop',
       'imagemagick', # convert, Edit, And Compose Images
       'iproute2mac', # Install ip command
       'jid', # json interactive filter
