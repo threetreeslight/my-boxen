@@ -92,6 +92,7 @@ class people::threetreeslight {
   package { 'amethyst': provider => 'brewcask' }
   package { 'android-studio': provider => 'brewcask' }
   package { 'atom': provider => 'brewcask' }
+  package { 'avg-antivirus': provider => 'brewcask' }
   package { 'caffeine': provider => 'brewcask' }
   package { 'chefdk': provider => 'brewcask' }
   package { 'dash': provider => 'brewcask' }
@@ -104,7 +105,8 @@ class people::threetreeslight {
   package { 'flux': provider => 'brewcask' }
   package { 'ios-console': provider => 'brewcask' }
   package { 'iterm2': provider => 'brewcask' }
-  package { 'karabiner': provider => 'brewcask' }
+  package { 'karabiner-elements': provider => 'brewcask' }
+  package { 'knock': provider => 'brewcask' }
   package { 'lastpass': provider => 'brewcask' }
   package { 'mysqlworkbench': provider => 'brewcask' }
   package { 'postman': provider => 'brewcask' }
