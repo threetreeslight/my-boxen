@@ -63,21 +63,6 @@ node default {
     fail('Please enable full disk encryption and try again')
   }
 
-  # node versions
-  # nodejs::version { '0.12': }
-
-  # default ruby versions
-  ruby::version { '2.3.1': }
-
-  # common, useful packages
-  package {
-    [
-      'ack',
-      'findutils',
-      'gnu-tar'
-    ]:
-  }
-
   file { "${boxen::config::srcdir}/our-boxen":
     ensure => link,
     target => $boxen::config::repodir

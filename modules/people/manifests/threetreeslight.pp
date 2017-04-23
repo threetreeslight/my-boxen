@@ -38,27 +38,32 @@ class people::threetreeslight {
   homebrew::tap { 'brona/iproute2mac': } # Install ip command
   package {
     [
+      'ack',
       'awscli',
       'coreutils', # change mac command to like GNU Linux
       'ctags',
       'colordiff',
-      'embulk',
+      # 'embulk',
       'direnv',
       'docker',
       'docker-compose',
       'docker-machine',
-      'gzip',
+      'dinghy', # for docker
+      'findutils',
+      'go',
       'git-secrets', # detect secret file on git hook
       'git-now',
+      'gnu-tar',
+      'gzip',
       'heroku',
       'hub', # github cli
       'htop',
-      'imagemagick', # convert, Edit, And Compose Images
-      'iproute2mac', # Install ip command
+      # 'imagemagick', # convert, Edit, And Compose Images
+      'iproute2mac', # ip command
       'jid', # json interactive filter
       'jq', # json perser pipeline
       'libidn', # encode/decode utf-8 domain
-      'libxml2', # need for nokogiri
+      # 'libxml2', # need for nokogiri
       'mobile-shell',
       'mycli',
       'mysql', # percona-toolkit and mycli are depend on it
@@ -70,103 +75,69 @@ class people::threetreeslight {
       'pgcli',
       'pstree', # ps axf like command on FreeBSD
       'putty', # use convert ppk key to OpenSSH format
+      'python',
       'reattach-to-user-namespace', # use tmux to clipbord
       'readline', # use for ruby compile
-      'source-highlight', # performance test
+      'source-highlight',
       'sshrc',
       'terraform',
       'tig', # git cui client
       'tmux', # terminal session
       'tmux-cssh', # terminal session
-      'tree', # linux tree cmd
+      'tree',
       'vim', # mac preinstalled vim is old X(
       'watch',
       'wget',
-      'z', # memois cd
       'zsh',
-      'dinghy', # for docker
       'zsh-completions'
     ]:
   }
   package { 'alfred': provider => 'brewcask' }
   package { 'amethyst': provider => 'brewcask' }
-  package { 'android-studio': provider => 'brewcask' }
+  # package { 'android-studio': provider => 'brewcask' }
   package { 'atom': provider => 'brewcask' }
   package { 'avg-antivirus': provider => 'brewcask' }
   package { 'caffeine': provider => 'brewcask' }
-  package { 'chefdk': provider => 'brewcask' }
+  # package { 'chefdk': provider => 'brewcask' }
   package { 'dash': provider => 'brewcask' }
   package { 'dropbox': provider => 'brewcask' }
-  package { 'firefox': provider => 'brewcask' }
+  # package { 'firefox': provider => 'brewcask' }
   package { 'gitify': provider => 'brewcask' }
   package { 'google-chrome': provider => 'brewcask' }
   package { 'google-japanese-ime': provider => 'brewcask' }
   package { 'gyazo': provider => 'brewcask' }
   package { 'flux': provider => 'brewcask' }
-  package { 'ios-console': provider => 'brewcask' }
+  # package { 'ios-console': provider => 'brewcask' }
   package { 'iterm2': provider => 'brewcask' }
   package { 'karabiner-elements': provider => 'brewcask' }
   package { 'knock': provider => 'brewcask' }
   package { 'lastpass': provider => 'brewcask' }
-  package { 'mysqlworkbench': provider => 'brewcask' }
+  # package { 'mysqlworkbench': provider => 'brewcask' }
   package { 'postman': provider => 'brewcask' }
   package { 'sequel-pro': provider => 'brewcask' }
-  package { 'simpholders': provider => 'brewcask' }
+  # package { 'simpholders': provider => 'brewcask' }
   package { 'slack': provider => 'brewcask' }
-  package { 'virtualbox': provider => 'brewcask' }
-  package { 'vlc': provider => 'brewcask' }
+  # package { 'virtualbox': provider => 'brewcask' }
+  # package { 'vlc': provider => 'brewcask' }
   package { 'wmail': provider => 'brewcask' }
 
-  #
-  # ruby
-  #
-  ruby_gem { 'rubocop for all ruby versions':
-    gem          => 'rubocop',
-    ruby_version => '*'
-  }
-  ruby_gem { 'tmuxinator for all ruby versions':
-    gem          => 'tmuxinator',
-    ruby_version => '*'
-  }
-  ruby_gem { 'cocoapods for all ruby versions':
-    gem          => 'cocoapods',
-    ruby_version => '*'
-  }
+  # #
+  # # ruby
+  # #
+  # ruby_gem { 'rubocop for all ruby versions':
+  #   gem          => 'rubocop',
+  #   ruby_version => '*'
+  # }
+  # ruby_gem { 'tmuxinator for all ruby versions':
+  #   gem          => 'tmuxinator',
+  #   ruby_version => '*'
+  # }
+  # ruby_gem { 'cocoapods for all ruby versions':
+  #   gem          => 'cocoapods',
+  #   ruby_version => '*'
+  # }
   # # rbenv plugins
   # repository { '/opt/boxen/rbenv/plugins/gem-src':
   #   source  => 'amatsuda/gem-src'
-  # }
-
-  #
-  # phantomjs
-  #
-  phantomjs::version { '2.1.1': }
-
-  #
-  # vagrant
-  #
-  include vagrant
-  vagrant::plugin { 'vbox-snapshot': }
-
-  # #
-  # # dotfile setting
-  # #
-  # $home     = "/Users/${::boxen_user}"
-  # $dotfiles = "${home}/dotfiles"
-  # repository { $dotfiles:
-  #   source  => 'ae06710/dotfiles'
-  # }
-  # exec { "dotfile-setup":
-  #   cwd => $dotfiles,
-  #   command => 'sh ${dotfiles}/install.sh',
-  #   creates => "${home}/.zshrc",
-  #   require => Repository[$dotfiles],
-  #   notify  => Exec['dotfile-submodule-update'],
-  # }
-
-  # exec { "dotfile-submodule-update":
-  #   cwd => $dotfiles,
-  #   command => 'git submodule init && git submodule update',
-  #   creates => "${dotfiles}/antigen/.env",
   # }
 }

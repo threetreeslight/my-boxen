@@ -63,6 +63,3 @@ github "xquartz",     "1.2.1"
 
 # general
 github "osx", "2.8.0"
-
-# lib
-github "vagrant", "3.3.4"
