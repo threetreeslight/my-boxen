@@ -57,6 +57,7 @@ class people::threetreeslight {
       'gzip',
       'heroku',
       'hub', # github cli
+      'hugo',
       'htop',
       # 'imagemagick', # convert, Edit, And Compose Images
       'iproute2mac', # ip command
